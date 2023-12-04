@@ -5,7 +5,7 @@
 /// <reference types="activex-dao" />
 
 declare namespace Visio {
-    type AddDocumentResult<T> = T extends VisDocumentType.visTypeDrawing ? DialogSheet
+    type AddDocumentResult<T> = T extends VisDocumentType.visTypeDrawing ? Document
         : T extends VisDocumentType.xlChart ? Chart
         : T extends VisDocumentType ? Worksheet
         : T extends undefined ? Sheet
@@ -44,9 +44,9 @@ declare namespace Visio {
     type PrintToFileName<T> = T extends true ? string
         : undefined;
 
-    type Sheet = Worksheet | Chart | DialogSheet;
+    type Sheet = Worksheet | Chart | Document;
 
-    type SheetView = WorksheetView | DialogSheetView;
+    type SheetView = WorksheetView | DocumentView;
 
     const enum Constants {
         xl3DBar = -4099,
@@ -3207,7 +3207,7 @@ declare namespace Visio {
         ActivateMicrosoftApp(Index: XlMSApplication): void;
         readonly ActiveCell: Range;
         readonly ActiveChart: Chart;
-        readonly ActiveDialog: DialogSheet;
+        readonly ActiveDialog: Document;
         readonly ActiveEncryptionSession: number;
         readonly ActiveMenuBar: MenuBar;
         ActivePrinter: string;
@@ -3291,7 +3291,7 @@ declare namespace Visio {
         DeleteChartAutoFormat(Name: string): void;
         DeleteCustomList(ListNum: number): void;
         readonly Dialogs: Dialogs;
-        readonly DialogSheets: Sheets<DialogSheet>;
+        readonly Documents: Sheets<Document>;
         DisplayAlerts: boolean;
         DisplayClipboardWindow: boolean;
         DisplayCommentIndicator: XlCommentDisplayMode;
@@ -5248,8 +5248,8 @@ declare namespace Visio {
         (Index: XlBuiltInDialog): Dialog;
     }
 
-    class DialogSheet {
-        private "Visio.DialogSheet_typekey": DialogSheet;
+    class Document {
+        private "Visio.Document_typekey": Document;
         private constructor();
         __PrintOut(
             From?: any,
@@ -5446,13 +5446,13 @@ declare namespace Visio {
         readonly VPageBreaks: VPageBreaks;
     }
 
-    class DialogSheetView {
-        private "Visio.DialogSheetView_typekey": DialogSheetView;
+    class DocumentView {
+        private "Visio.DocumentView_typekey": DocumentView;
         private constructor();
         readonly Application: Application;
         readonly Creator: XlCreator;
         readonly Parent: any;
-        readonly Sheet: DialogSheet;
+        readonly Sheet: Document;
     }
 
     class DisplayFormat {
@@ -9410,7 +9410,7 @@ declare namespace Visio {
         DefaultSlicerStyle: any;
         DefaultTableStyle: any;
         DeleteNumberFormat(NumberFormat: string): void;
-        readonly DialogSheets: Sheets<DialogSheet>;
+        readonly Documents: Sheets<Document>;
         DisplayDrawingObjects: XlDisplayDrawingObjects;
         DisplayInkComments: boolean;
         readonly DocumentInspectors: Office.DocumentInspectors;
