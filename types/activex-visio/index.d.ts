@@ -32,14 +32,7 @@ declare namespace Visio {
         | Constants.xlJustify
         | Constants.xlTop;
 
-    type PivotTableWizardSourceData<TSourceType> = TSourceType extends XlPivotTableSourceType.xlExternal
-        ? SafeArray<string>
-        : TSourceType extends XlPivotTableSourceType ? Range | SafeArray<Range> | string
-        : TSourceType extends undefined ? undefined
-        : never;
-
-    type PivotTableWizardAutoPage<TSourceType> = TSourceType extends XlPivotTableSourceType.xlConsolidation ? boolean
-        : undefined;
+    
 
     type PrintToFileName<T> = T extends true ? string
         : undefined;
