@@ -13,7 +13,6 @@ declare namespace Visio {
         readonly Application: Application;
         readonly ActiveDocument: Document;
         readonly ActivePage: Page;
-        ActivePrinter: string;
         readonly ActiveWindow: Window;
         readonly Name: string;
 
