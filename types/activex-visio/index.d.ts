@@ -21,6 +21,7 @@ declare namespace Visio {
     class Document {
         private "Visio.Document_typekey": Document;
         private constructor();
+        readonly VBProject: VBIDE.VBProject;
     }
 
     interface Documents {
